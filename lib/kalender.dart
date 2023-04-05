@@ -62,6 +62,13 @@ class _MenuKalenderState extends State<MenuKalender> {
           children: [
             TableCalendar(focusedDay: DateTime.now(), firstDay: DateTime(2010), lastDay: DateTime(2050)),
             const SizedBox(height: 20),
+            Text(
+              DateFormat('EEEE, MMMM d, yyyy').format(_selectedDate),
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
