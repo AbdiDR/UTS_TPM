@@ -19,20 +19,6 @@ class _MenuKalenderState extends State<MenuKalender> {
   final StreamController _witaController = StreamController();
   final StreamController _witController = StreamController();
 
-  void _selectDate(BuildContext context) async {
-    final DateTime? newDate = await showDatePicker(
-      context: context,
-      initialDate: _selectedDate,
-      firstDate: DateTime.now().subtract(const Duration(days: 365)),
-      lastDate: DateTime.now().add(const Duration(days: 365)),
-    );
-
-    if (newDate != null) {
-      setState(() {
-        _selectedDate = newDate;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,8 +46,8 @@ class _MenuKalenderState extends State<MenuKalender> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TableCalendar(focusedDay: DateTime.now(), firstDay: DateTime(2010), lastDay: DateTime(2050)),
-            const SizedBox(height: 20),
+            TableCalendar(focusedDay: _selectedDate, firstDay: DateTime(2010), lastDay: DateTime(2050)),
+            const SizedBox(height: 10),
             Text(
               DateFormat('EEEE, MMMM d, yyyy').format(_selectedDate),
               style: const TextStyle(
@@ -69,6 +55,7 @@ class _MenuKalenderState extends State<MenuKalender> {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
