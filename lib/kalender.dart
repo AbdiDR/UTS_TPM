@@ -24,7 +24,7 @@ class _MenuKalenderState extends State<MenuKalender> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page'),
+        title: Text('Kalender'),
         backgroundColor: Colors.red,
         centerTitle: true,
         actions: [
